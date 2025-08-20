@@ -16,9 +16,9 @@ public class SimpleWebServer
         _requestHandler = new RequestHandler(_routeManager);
     }
 
-    public void AddRoute(string path, string method, Func<HttpListenerRequest, Task<string>> handler)
+    public void AddRoute(string path, string method, Func<HttpListenerRequest, Task<string>> handler, string description = "", string requestBody = "", string responseExample = "")
     {
-        _routeManager.AddRoute(path, method, handler);
+        _routeManager.AddRoute(path, method, handler, description, requestBody, responseExample);
     }
 
     public async Task StartAsync()
